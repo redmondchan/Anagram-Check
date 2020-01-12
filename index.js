@@ -5,19 +5,33 @@ let anagramCheck = (str1, str2) => {
     return false
   }
 
-  let arr1 = str1.split("")
-  let arr2 = str2.split("")
+  let arr1 = str1.split("").sort().join("")
+  let arr2 = str2.split("").sort().join("")
 
-  for(let i = 0; i < arr1.length; i++){
-    let index = arr2.indexOf(`${arr1[i]}`)
-    if(index == -1){
-      return false
-    } else {
-      arr2.splice(`${index}`, 1)
-    }
+  if(arr1 == arr2){
+    return true
   }
-  return true
+  return false
 }
+
+// let anagramCheck = (str1, str2) => {
+//   if(str1.length != str2.length){
+//     return false
+//   }
+
+//   let arr1 = str1.split("")
+//   let arr2 = str2.split("")
+
+//   for(let i = 0; i < arr1.length; i++){
+//     let index = arr2.indexOf(`${arr1[i]}`)
+//     if(index == -1){
+//       return false
+//     } else {
+//       arr2.splice(`${index}`, 1)
+//     }
+//   }
+//   return true
+// }
 
 console.log(anagramCheck('abc', 'cba')) //true
 console.log(anagramCheck('ddvia', 'david')) //true
