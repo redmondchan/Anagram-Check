@@ -1,3 +1,5 @@
+//Different ways to check for anagram
+
 let anagramCheck = (str1, str2) => {
   if(str1.length != str2.length){
     return false
