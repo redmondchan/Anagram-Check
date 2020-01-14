@@ -1,19 +1,55 @@
 //Different ways to check for anagram
 
+// --------------method 1--------------------
+// let anagramCheck = (str1, str2) => {
+//   if(str1.length != str2.length){
+//     return false
+//   }
+
+//   let arr1 = str1.split("").sort().join("")
+//   let arr2 = str2.split("").sort().join("")
+
+//   if(arr1 == arr2){
+//     return true
+//   }
+//   return false
+// }
+
+// --------------method 3--------------------
 let anagramCheck = (str1, str2) => {
+  
   if(str1.length != str2.length){
     return false
   }
 
-  let arr1 = str1.split("").sort().join("")
-  let arr2 = str2.split("").sort().join("")
+  let obj1 = {}
+  let obj2 = {}
 
-  if(arr1 == arr2){
-    return true
+  for(let char of str1){
+    if(obj1[char]){
+      obj1[char] += 1
+    } else {
+      obj1[char]= 1
+    }
   }
-  return false
+
+  for(let char of str2){
+    if(obj2[char]){
+      obj2[char] += 1
+    } else {
+      obj2[char]= 1
+    }
+  }
+
+  for(let key in obj1){
+    if(obj1[key] !== obj2[key]){
+      return false
+    }
+  }
+  return true
 }
 
+// --------------method 4--------------------
 // let anagramCheck = (str1, str2) => {
 //   if(str1.length != str2.length){
 //     return false
